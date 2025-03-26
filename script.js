@@ -1,5 +1,9 @@
 // Initialize Three.js scene
-let scene, camera, renderer, labelRenderer, controls;
+// Make scene, camera, and renderer accessible globally for PDF export
+let labelRenderer, controls;
+window.scene = null;
+window.camera = null;
+window.renderer = null;
 let pyramid, labels = [];
 let icons = []; // Store all 3D icons
 let css2dLabels = []; // Store CSS2D labels
@@ -129,23 +133,23 @@ const timelineData = [
 // Initialize the scene
 function init() {
     // Create scene
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x121212);
+    window.scene = new THREE.Scene();
+    window.scene.background = new THREE.Color(0x121212);
 
     // Create camera
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth * 0.7 / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 2, 5);
+    window.camera = new THREE.PerspectiveCamera(75, window.innerWidth * 0.7 / window.innerHeight, 0.1, 1000);
+    window.camera.position.set(0, 2, 5);
 
     // Create renderer with improved settings
-    renderer = new THREE.WebGLRenderer({ 
+    window.renderer = new THREE.WebGLRenderer({ 
         antialias: true,
         alpha: true,
         powerPreference: 'high-performance'
     });
-    renderer.setSize(window.innerWidth * 0.7, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.shadowMap.enabled = true;
-    document.getElementById('pyramid-container').appendChild(renderer.domElement);
+    window.renderer.setSize(window.innerWidth * 0.7, window.innerHeight);
+    window.renderer.setPixelRatio(window.devicePixelRatio);
+    window.renderer.shadowMap.enabled = true;
+    document.getElementById('pyramid-container').appendChild(window.renderer.domElement);
     
     // Create CSS2D renderer for labels with improved settings
     labelRenderer = new THREE.CSS2DRenderer();
@@ -157,7 +161,7 @@ function init() {
     document.getElementById('pyramid-container').appendChild(labelRenderer.domElement);
 
     // Add enhanced orbit controls
-    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls = new THREE.OrbitControls(window.camera, window.renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.rotateSpeed = 0.7;
@@ -168,12 +172,12 @@ function init() {
 
     // Add improved lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
+    window.scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight.position.set(1, 1, 1);
     directionalLight.castShadow = true;
-    scene.add(directionalLight);
+    window.scene.add(directionalLight);
     
     // Add rim light for better definition
     const rimLight = new THREE.DirectionalLight(0x4fc3f7, 0.3);
@@ -1418,9 +1422,9 @@ function addLine(x1, y1, z1, x2, y2, z2, color, opacity = 0.6) {
 
 // Handle window resize
 function onWindowResize() {
-    camera.aspect = window.innerWidth * 0.7 / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth * 0.7, window.innerHeight);
+    window.camera.aspect = window.innerWidth * 0.7 / window.innerHeight;
+    window.camera.updateProjectionMatrix();
+    window.renderer.setSize(window.innerWidth * 0.7, window.innerHeight);
     labelRenderer.setSize(window.innerWidth * 0.7, window.innerHeight);
 }
 
@@ -1437,12 +1441,12 @@ function animate() {
     }
     
     // Render both WebGL and CSS2D renderers
-    renderer.render(scene, camera);
-    labelRenderer.render(scene, camera);
+    window.renderer.render(window.scene, window.camera);
+    labelRenderer.render(window.scene, window.camera);
     
     // Update label positions to face camera
     labels.forEach(label => {
-        label.lookAt(camera.position);
+        label.lookAt(window.camera.position);
     });
     
     // Render scene
