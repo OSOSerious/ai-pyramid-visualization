@@ -2,6 +2,10 @@
 
 This project visualizes the evolution of artificial intelligence from Narrow AI (ANI) to Artificial General Intelligence (AGI) to Artificial Superintelligence (ASI) using a 3D pyramid.
 
+## Live Demo
+
+View the live visualization: [AI Pyramid Visualization](https://ososerious.github.io/ai-pyramid-visualization/)
+
 ## Features
 
 - Interactive 3D pyramid visualization using Three.js
