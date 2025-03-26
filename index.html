@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Evolution Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS2DRenderer.js"></script>
+</head>
+<body>
+    <!-- Slide Navigation Controls -->
+    <div class="presentation-controls">
+        <button id="prev-slide" class="nav-button" title="Previous Slide"><i class="fas fa-chevron-left"></i><span class="sr-only">Previous Slide</span></button>
+        <div class="slide-indicator">
+            <span id="current-slide">1</span>/<span id="total-slides">10</span>
+        </div>
+        <button id="next-slide" class="nav-button" title="Next Slide"><i class="fas fa-chevron-right"></i><span class="sr-only">Next Slide</span></button>
+        <button id="fullscreen" class="nav-button" title="Toggle Fullscreen"><i class="fas fa-expand"></i><span class="sr-only">Toggle Fullscreen</span></button>
+    </div>
+
+    <!-- Slide Container -->
+    <div class="slides-container">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-content title-slide">
+                <h1>The 3 Levels of Artificial Intelligence</h1>
+                <h2>Understanding AI AGI ASI</h2>
+                <div class="subtitle">An Interactive Journey Through AI Development</div>
+                <div class="domains">
+                    <div>ai.miami/research - AI fundamentals</div>
+                    <div>agi.miami/research - AGI research</div>
+                    <div>asi.miami - ASI foresight</div>
+                </div>
+                <div class="presenter">
+                    <p>Presented by AI Global Ventures, Inc</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: AI Pyramid Visualization -->
+        <div class="slide" id="slide-2">
+            <div class="container">
+                <div class="info-panel">
+                    <h1>The Evolution of AI</h1>
+            <div class="level" id="asi-info">
+                <h2>ASI - Artificial Superintelligence (Theoretical)</h2>
+                <p>Intelligence that surpasses human capabilities in all domains by orders of magnitude.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">Theoretical:</span> Systems capable of recursive self-improvement</div>
+                    <div class="event"><span class="year">Theoretical:</span> Intelligence explosion/singularity</div>
+                    <div class="event"><span class="year">Theoretical:</span> Solving problems beyond human comprehension</div>
+                    <div class="event"><span class="year">Theoretical:</span> Technological breakthroughs in all scientific fields</div>
+                </div>
+            </div>
+            <div class="level" id="agi-info">
+                <h2>AGI - Artificial General Intelligence (Approaching)</h2>
+                <p>Systems with human-level intelligence across all cognitive domains.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">Future:</span> Systems capable of learning any intellectual task</div>
+                    <div class="event"><span class="year">Future:</span> Self-improving AI with general problem-solving capabilities</div>
+                    <div class="event"><span class="year">Future:</span> AI passing advanced reasoning and creativity tests</div>
+                    <div class="event"><span class="year">Future:</span> Transfer learning across all domains of knowledge</div>
+                </div>
+            </div>
+            <div class="level" id="ani-modern-info">
+                <h2>Modern AI (2020-2025)</h2>
+                <p>Advanced AI systems capable of sophisticated language processing and multimodal understanding.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">2021:</span> DALL-E and Midjourney revolutionize text-to-image generation</div>
+                    <div class="event"><span class="year">2022:</span> ChatGPT launches to widespread adoption</div>
+                    <div class="event"><span class="year">2023:</span> GPT-4 introduces multimodal capabilities</div>
+                    <div class="event"><span class="year">2024:</span> AI agents capable of autonomous tasks across platforms</div>
+                    <div class="event"><span class="year">2025:</span> Advanced AI systems with integrated reasoning capabilities</div>
+                </div>
+            </div>
+            <div class="level" id="ani-genai-info">
+                <h2>Early Generative AI (2017-2020)</h2>
+                <p>Breakthrough developments in language models and generative capabilities.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">2017:</span> Transformer architecture introduced by Google researchers</div>
+                    <div class="event"><span class="year">2018:</span> BERT (Bidirectional Encoder Representations from Transformers) by Google</div>
+                    <div class="event"><span class="year">2018:</span> GPT-1 released by OpenAI</div>
+                    <div class="event"><span class="year">2019:</span> GPT-2 with significantly improved text generation capabilities</div>
+                    <div class="event"><span class="year">2020:</span> GPT-3 introduces zero-shot learning at massive scale</div>
+                </div>
+            </div>
+            <div class="level" id="ani-personal-info">
+                <h2>Personal AI Assistants (2011-2017)</h2>
+                <p>AI enters mainstream consumer technology with voice assistants and recommendation systems.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">2011:</span> Apple introduces Siri on iPhone 4S</div>
+                    <div class="event"><span class="year">2014:</span> Amazon launches Alexa with Echo smart speakers</div>
+                    <div class="event"><span class="year">2015:</span> Microsoft releases Cortana virtual assistant</div>
+                    <div class="event"><span class="year">2016:</span> Google Assistant launched for Google Home devices</div>
+                    <div class="event"><span class="year">2017:</span> Deep learning becomes critical in recommendation systems</div>
+                </div>
+            </div>
+            <div class="level" id="ani-deep-info">
+                <h2>Deep Learning Revolution (2000-2011)</h2>
+                <p>The resurgence of neural networks and the beginning of modern deep learning.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">2001:</span> First GPUs used for neural network training</div>
+                    <div class="event"><span class="year">2006:</span> Geoffrey Hinton introduces deep belief networks</div>
+                    <div class="event"><span class="year">2009:</span> ImageNet dataset created by Fei-Fei Li</div>
+                    <div class="event"><span class="year">2010:</span> Deep learning models begin to dominate computer vision</div>
+                    <div class="event"><span class="year">2011:</span> IBM Watson defeats human champions at Jeopardy!</div>
+                </div>
+            </div>
+            <div class="level" id="ani-symbolic-info">
+                <h2>Symbolic AI and Expert Systems (1980-2000)</h2>
+                <p>The era of rule-based systems and knowledge representation through symbolic processing.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">1981:</span> Japan's Fifth Generation Computer Systems project launched</div>
+                    <div class="event"><span class="year">1986:</span> First AI winter due to funding cuts and unfulfilled promises</div>
+                    <div class="event"><span class="year">1988:</span> Development of Bayesian networks for probabilistic reasoning</div>
+                    <div class="event"><span class="year">1990:</span> Machine translation systems begin development</div>
+                    <div class="event"><span class="year">1997:</span> Deep Blue defeats Garry Kasparov at chess</div>
+                </div>
+            </div>
+            <div class="level" id="early-ai-info">
+                <h2>Early AI Research (1960-1980)</h2>
+                <p>First practical applications of AI concepts and foundational work in computer science.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">1965:</span> ELIZA chatbot created by Joseph Weizenbaum</div>
+                    <div class="event"><span class="year">1969:</span> Shakey the Robot at Stanford Research Institute</div>
+                    <div class="event"><span class="year">1971:</span> Project Cybersyn in Chile under Stafford Beer</div>
+                    <div class="event"><span class="year">1972:</span> PROLOG programming language developed</div>
+                    <div class="event"><span class="year">1975:</span> Expert systems begin development at Stanford</div>
+                </div>
+            </div>
+            <div class="level" id="cybernetics-info">
+                <h2>Cybernetics and Foundations (1950-1960)</h2>
+                <p>The foundational era that established core concepts in computing and AI theory.</p>
+                <div class="events-list">
+                    <div class="event"><span class="year">1950:</span> Turing Test proposed by Alan Turing</div>
+                    <div class="event"><span class="year">1956:</span> Term "Artificial Intelligence" coined at Dartmouth Conference</div>
+                    <div class="event"><span class="year">1958:</span> SNARC (Stochastic Neural Analog Reinforcement Calculator) created by Marvin Minsky</div>
+                    <div class="event"><span class="year">1959:</span> Arthur Samuel's Checkers program demonstrates machine learning</div>
+                </div>
+            </div>
+                </div>
+                <div id="pyramid-container"></div>
+                <div class="timeline-toggle">
+                    <button id="toggle-view">Switch to Timeline View</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: ANI - Level 1 -->
+        <div class="slide" id="slide-3">
+            <div class="slide-content">
+                <h1>Level 1 - AI (Narrow AI)</h1>
+                <h2>Task-specific systems</h2>
+                <div class="two-column">
+                    <div class="column">
+                        <h3>Definition & Examples</h3>
+                        <ul>
+                            <li>AI designed for specific tasks (no consciousness)</li>
+                            <li>ChatGPT (language processing)</li>
+                            <li>Tesla Autopilot (driving)</li>
+                            <li>AlphaFold (protein folding)</li>
+                        </ul>
+                        <h3>Limitations</h3>
+                        <ul>
+                            <li>Cannot generalize beyond training data</li>
+                            <li>No self-awareness</li>
+                            <li>Limited to single domains</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Task-Specific AI in Action: Robot Dogs</h3>
+                        <ul>
+                            <li><strong>Examples:</strong> Boston Dynamics Spot, Unitree Go2, ANYmal</li>
+                            <li><strong>Capabilities:</strong> Pre-programmed agility, sensor-driven autonomy, payload customization</li>
+                            <li><strong>Limitations:</strong> Zero cross-domain learning, no contextual reasoning</li>
+                        </ul>
+                        <div class="key-fact">
+                            <p>Remember: "These are all pattern recognition systems - they don't 'understand' like humans."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Real-World AI Tools -->
+        <div class="slide" id="slide-4">
+            <div class="slide-content">
+                <h1>Real-World AI Tools in Action</h1>
+                <h2>Current Applications of Narrow AI</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <h3>Text & Language</h3>
+                        <ul>
+                            <li>ChatGPT (OpenAI)</li>
+                            <li>Gemini (Google)</li>
+                            <li>Claude (Anthropic)</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Image & Video</h3>
+                        <ul>
+                            <li>DALL·E (OpenAI)</li>
+                            <li>MidJourney (Independent)</li>
+                            <li>Runway ML (Video editing)</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Code & Data</h3>
+                        <ul>
+                            <li>GitHub Copilot (Microsoft)</li>
+                            <li>Tabnine (Code completion)</li>
+                            <li>Pandas AI (Data analysis)</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Productivity</h3>
+                        <ul>
+                            <li>Notion AI (Notes)</li>
+                            <li>Otter.ai (Transcription)</li>
+                            <li>Fireflies (Meeting summaries)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="enterprise-applications">
+                    <h3>Proven Enterprise AI Applications</h3>
+                    <div class="three-column">
+                        <div>
+                            <strong>Customer Service:</strong> Zendesk AI (40% faster ticket resolution)
+                        </div>
+                        <div>
+                            <strong>Healthcare:</strong> IBM Watson (Cancer diagnosis support)
+                        </div>
+                        <div>
+                            <strong>Retail:</strong> Amazon Rekognition (Inventory management)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Level 2 - AGI -->
+        <div class="slide" id="slide-5">
+            <div class="slide-content">
+                <h1>Level 2 - AGI (General AI)</h1>
+                <h2>Human-level adaptability</h2>
+                <div class="two-column">
+                    <div class="column">
+                        <h3>Definition & Status</h3>
+                        <ul>
+                            <li>AI with human-like reasoning and learning ability</li>
+                            <li>Does not exist yet (as of 2025)</li>
+                            <li>Requires breakthroughs in cognitive architecture</li>
+                        </ul>
+                        <h3>Key Challenges</h3>
+                        <ul>
+                            <li>Defining "intelligence"</li>
+                            <li>Ethical alignment (avoiding bias)</li>
+                            <li>Energy efficiency (human brain: ~20W | GPT-4: ~100,000W per query)</li>
+                            <li>Catastrophic forgetting (losing old skills when learning new ones)</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>AGI Research: 2025 Reality Check</h3>
+                        <blockquote>
+                            "AGI refers to a machine's ability to understand, learn, and apply knowledge across diverse domains at human-level efficiency."<br>
+                            <cite>- IEEE Standard Definition</cite>
+                        </blockquote>
+                        <h4>Current Status</h4>
+                        <ul>
+                            <li>All current AI is Narrow AI (task-specific)</li>
+                            <li>No AGI exists today (consensus across OpenAI, DeepMind, MIT)</li>
+                            <li>Major labs focus on AGI prerequisites:
+                                <ul>
+                                    <li>Meta's CICERO (strategic reasoning)</li>
+                                    <li>DeepMind's Gato (multi-task learning)</li>
+                                    <li>OpenAI's GPT-4 (broad but not general)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Level 3 - ASI -->
+        <div class="slide" id="slide-6">
+            <div class="slide-content">
+                <h1>Level 3 - ASI (Superintelligence)</h1>
+                <h2>Beyond-human cognition</h2>
+                <div class="center-block">
+                    <h3>Theoretical Implications</h3>
+                    <ul>
+                        <li>Intelligence surpassing humans by orders of magnitude</li>
+                        <li>Systems capable of recursive self-improvement</li>
+                        <li>Potential intelligence explosion/singularity</li>
+                        <li>Solving problems beyond human comprehension</li>
+                        <li>Technological breakthroughs in all scientific fields</li>
+                    </ul>
+                    <div class="important-notice">
+                        <h3>Why ASI Preparation Matters Now</h3>
+                        <p>Despite being theoretical, aligning future superintelligence with human values requires proactive research and governance frameworks today. The potential impact of ASI represents an existential inflection point for humanity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: AI Agents -->
+        <div class="slide" id="slide-7">
+            <div class="slide-content">
+                <h1>The AI Agent Boom</h1>
+                <h2>Autonomous AI Systems on the Rise</h2>
+                <div class="two-column">
+                    <div class="column">
+                        <h3>Major AI Agent Frameworks</h3>
+                        <ul>
+                            <li><strong>LangGraph:</strong> Graph-based workflow for structured agent development</li>
+                            <li><strong>OpenAI Agents SDK:</strong> Experimental framework for lightweight multi-agent orchestration</li>
+                            <li><strong>CrewAI:</strong> Enables creation of collaborative AI agent teams</li>
+                            <li><strong>Windsurf:</strong> Advanced agentic code editor with Supercomplete, Cascade, and AI terminal</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Key Advancements Enabling Agents</h3>
+                        <ul>
+                            <li>Better, faster, smaller models</li>
+                            <li>Chain-of-thought (COT) training</li>
+                            <li>Increased context windows</li>
+                            <li>Function calling capabilities</li>
+                        </ul>
+                        <div class="stats-box">
+                            <p>99% of developers exploring or developing AI agents for enterprise</p>
+                            <p>13X increase in traffic from AI-powered chatbots during 2024 holidays</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: AI Timeline Early Years -->
+        <div class="slide" id="slide-8">
+            <div class="slide-content">
+                <h1>The Evolution of AI: Early Years</h1>
+                <h2>Foundational Developments (1950-2000)</h2>
+                <div class="timeline-section">
+                    <h3>1950-1960: Cybernetics and Foundations</h3>
+                    <ul class="timeline-events">
+                        <li><span class="year">1950:</span> Turing Test proposed by Alan Turing</li>
+                        <li><span class="year">1956:</span> Term "Artificial Intelligence" coined at Dartmouth Conference</li>
+                        <li><span class="year">1958:</span> SNARC created by Marvin Minsky</li>
+                        <li><span class="year">1959:</span> Arthur Samuel's Checkers program demonstrates machine learning</li>
+                    </ul>
+                    
+                    <h3>1960-1980: Early AI Research</h3>
+                    <ul class="timeline-events">
+                        <li><span class="year">1965:</span> ELIZA chatbot created by Joseph Weizenbaum</li>
+                        <li><span class="year">1969:</span> Shakey the Robot at Stanford Research Institute</li>
+                        <li><span class="year">1972:</span> PROLOG programming language developed</li>
+                        <li><span class="year">1975:</span> Expert systems begin development at Stanford</li>
+                    </ul>
+                    
+                    <h3>1980-2000: Symbolic AI and Expert Systems</h3>
+                    <ul class="timeline-events">
+                        <li><span class="year">1981:</span> Japan's Fifth Generation Computer Systems project launched</li>
+                        <li><span class="year">1986:</span> First AI winter due to funding cuts and unfulfilled promises</li>
+                        <li><span class="year">1988:</span> Development of Bayesian networks for probabilistic reasoning</li>
+                        <li><span class="year">1997:</span> Deep Blue defeats Garry Kasparov at chess</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: AI Timeline Modern Era -->
+        <div class="slide" id="slide-9">
+            <div class="slide-content">
+                <h1>The Evolution of AI: Modern Era</h1>
+                <h2>Breakthrough to Present Day (2000-2025)</h2>
+                <div class="timeline-section">
+                    <h3>2000-2011: Deep Learning Revolution</h3>
+                    <ul class="timeline-events">
+                        <li><span class="year">2001:</span> First GPUs used for neural network training</li>
+                        <li><span class="year">2006:</span> Geoffrey Hinton introduces deep belief networks</li>
+                        <li><span class="year">2009:</span> ImageNet dataset created by Fei-Fei Li</li>
+                        <li><span class="year">2011:</span> IBM Watson defeats human champions at Jeopardy!</li>
+                    </ul>
+                    
+                    <h3>2011-2020: From Assistants to Generative AI</h3>
+                    <ul class="timeline-events">
+                        <li><span class="year">2011:</span> Apple introduces Siri on iPhone 4S</li>
+                        <li><span class="year">2014:</span> Amazon launches Alexa with Echo smart speakers</li>
+                        <li><span class="year">2017:</span> Transformer architecture introduced by Google researchers</li>
+                        <li><span class="year">2020:</span> GPT-3 introduces zero-shot learning at massive scale</li>
+                    </ul>
+                    
+                    <h3>2020-2025: Modern AI Explosion</h3>
+                    <ul class="timeline-events">
+                        <li><span class="year">2021:</span> DALL-E and Midjourney revolutionize text-to-image generation</li>
+                        <li><span class="year">2022:</span> ChatGPT launches to widespread adoption</li>
+                        <li><span class="year">2023:</span> GPT-4 introduces multimodal capabilities</li>
+                        <li><span class="year">2024:</span> AI agents capable of autonomous tasks across platforms</li>
+                        <li><span class="year">2025:</span> Advanced AI systems with integrated reasoning capabilities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Conclusion -->
+        <div class="slide" id="slide-10">
+            <div class="slide-content">
+                <h1>The Future of AI</h1>
+                <h2>From Narrow AI to ASI</h2>
+                <div class="pyramid-summary">
+                    <div class="pyramid-level asi">
+                        <h3>ASI - Artificial Superintelligence</h3>
+                        <p>Intelligence surpassing humans by orders of magnitude</p>
+                    </div>
+                    <div class="pyramid-level agi">
+                        <h3>AGI - Artificial General Intelligence</h3>
+                        <p>Human-level intelligence across all cognitive domains</p>
+                    </div>
+                    <div class="pyramid-level ani">
+                        <h3>Modern AI Systems (Narrow AI)</h3>
+                        <p>Advanced but domain-specific capabilities</p>
+                    </div>
+                </div>
+                <div class="conclusion-box">
+                    <h3>Our Responsibility</h3>
+                    <p>As we progress through the AI pyramid, careful development and ethical considerations become increasingly crucial. The future of AI development depends on our ability to guide its evolution while ensuring alignment with human values.</p>
+                </div>
+                <div class="resources-box">
+                    <h3>Learn More</h3>
+                    <div class="domains-footer">
+                        <div>ai.miami</div>
+                        <div>agi.miami</div>
+                        <div>asi.miami</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
